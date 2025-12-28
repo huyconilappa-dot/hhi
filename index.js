@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:16738/api";
+https://hhi-qlra.onrender.com
 const IMAGE_BASE_URL = "https://down-vn.img.susercontent.com/file";
 
 let cart = JSON.parse(localStorage.getItem("matmat_cart") || "[]");
