@@ -182,15 +182,14 @@ function updateUserUI() {
 }
 
 function goToLoginPage() {
+  console.log("URL hiện tại:", window.location.href);
+  console.log("Hostname:", window.location.hostname);
+  
   const isGitHubPages = window.location.hostname.includes("github.io");
-
-  if (isGitHubPages) {
-    window.open("login.html", "_self");
-  } else {
-    window.location.href = "login.html";
-  }
+  console.log("isGitHubPages:", isGitHubPages);
+  
+  window.location.href = "login.html";
 }
-
 function logout() {
   currentUser = null;
   localStorage.removeItem("matmat_user");
