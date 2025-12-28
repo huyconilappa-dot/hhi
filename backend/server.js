@@ -32,7 +32,14 @@ app.use((req, res, next) => {
   req.pool = pool;
   next();
 });
+// Vì server.js nằm trong thư mục /backend, ta dùng '../' để quay ra thư mục gốc
+const path = require("path");
+app.use(express.static(path.join(__dirname, "../")));
 
+// Định nghĩa route để khi vào link web sẽ mở file index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
+});
 /* ===================== ROUTES ===================== */
 app.get("/", (req, res) => {
   res.send("Chào mừng bạn đến với API của HHI! Server đang chạy...");
