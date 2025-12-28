@@ -6,7 +6,7 @@ MiniShop là một ứng dụng thương mại điện tử full-stack được 
 
 - **Backend**: Node.js, Express, MySQL
 - **Frontend**: HTML, CSS, JavaScript thuần
-- **Database**: MySQL với 12 sản phẩm mẫu
+- **Database**: POSTNGEQSQL với 24 sản phẩm mẫu
 
 ## 🚀 Tính Năng
 
