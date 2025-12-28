@@ -34,6 +34,9 @@ app.use((req, res, next) => {
 });
 
 /* ===================== ROUTES ===================== */
+app.get("/", (req, res) => {
+  res.send("Chào mừng bạn đến với API của HHI! Server đang chạy...");
+});
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/orders", require("./routes/orderRoutes"));
