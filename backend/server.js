@@ -68,7 +68,7 @@ app.get("/health", async (req, res) => {
 app.listen(PORT, async () => {
   console.log("======================================");
   console.log("🚀 SERVER STARTED SUCCESSFULLY");
-  console.log(`🌐 URL:https://localhost:$(PORT)`);
+ console.log(`🌐 URL:https://localhost:${PORT}`);
   console.log("🗄️  Database: PostgreSQL (Aiven)");
   console.log("🔐 SSL: ENABLED");
   console.log("======================================");
