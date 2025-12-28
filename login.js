@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:16738/api";
+const API_BASE_URL = "https://hhi-qlra.onrender.com:16738/api";
 // ==================== ANIMATED PARTICLES ====================
 function createParticles() {
   const particles = document.getElementById("particles");
