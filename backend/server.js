@@ -68,7 +68,7 @@ app.get("/health", async (req, res) => {
 app.listen(PORT, async () => {
   console.log("======================================");
   console.log("🚀 SERVER STARTED SUCCESSFULLY");
-  console.log(`🌐 URL: http://localhost:${PORT}`);
+  console.log(`🌐 URL:https://hhi-qlra.onrender.com`);
   console.log("🗄️  Database: PostgreSQL (Aiven)");
   console.log("🔐 SSL: ENABLED");
   console.log("======================================");
