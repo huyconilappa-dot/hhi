@@ -21,7 +21,7 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   ssl: {
     rejectUnauthorized: false, // Aiven yêu cầu SSL
-    ca: fs.readFileSync(process.env.CA_CERT_PATH || "./ca.pem").toString(),
+    
   },
   connectionTimeoutMillis: 20000,
   idleTimeoutMillis: 30000,
