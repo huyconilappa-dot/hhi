@@ -9,6 +9,8 @@ let products = [];
 let lastOrderId = null;
 window.isProcessingPayment = false;
 let currentDisplayCount = 20;
+let currentPriceFilter = "all";
+let currentCategoryFilter = "all";
 const PRODUCTS_PER_PAGE = 8;
 
 async function fetchProducts() {
@@ -1165,11 +1167,35 @@ async function doSearch() {
   const keyword = document.getElementById("searchInput").value.trim();
 
   if (!keyword) {
+    // Reset bộ lọc khi không có từ khóa
+    currentCategoryFilter = "all";
+    currentPriceFilter = "all";
+    document.querySelectorAll(".category-btn").forEach(btn => {
+      btn.classList.remove("active");
+      if (btn.dataset.category === "all") btn.classList.add("active");
+    });
+    document.querySelectorAll(".price-btn").forEach(btn => {
+      btn.classList.remove("active");
+      if (btn.dataset.price === "all") btn.classList.add("active");
+    });
+    
     await initProducts();
     return;
   }
 
   const searchResults = await searchProducts(keyword);
+   document.querySelectorAll(".category-btn").forEach(btn => {
+    btn.classList.remove("active");
+    if (btn.dataset.category === "all") btn.classList.add("active");
+  });
+  document.querySelectorAll(".price-btn").forEach(btn => {
+    btn.classList.remove("active");
+    if (btn.dataset.price === "all") btn.classList.add("active");
+  });
+  
+  currentCategoryFilter = "all";
+  currentPriceFilter = "all";
+  
   renderProducts(searchResults, "productGrid");
 
   if (searchResults.length === 0) {
@@ -1180,6 +1206,69 @@ async function doSearch() {
   }
 }
 
+function filterProductsByPrice(productsList, priceFilter) {
+  if (priceFilter === "all") {
+    return productsList;
+  }
+  
+  return productsList.filter(product => {
+    const price = parseFloat(product.price) || 0;
+    
+    switch(priceFilter) {
+      case "under100k":
+        return price < 100000;
+      case "100k-300k":
+        return price >= 100000 && price <= 300000;
+      case "300k-500k":
+        return price >= 300000 && price <= 500000;
+      case "over500k":
+        return price > 500000;
+      default:
+        return true;
+    }
+  });
+}
+function applyFilters() {
+  let filteredProducts = [];
+  
+  // Lọc theo danh mục
+  if (currentCategoryFilter === "all") {
+    filteredProducts = [...products];
+  } else {
+    filteredProducts = products.filter(p => 
+      p.category === currentCategoryFilter || 
+      (p.category && p.category.toLowerCase().includes(currentCategoryFilter.toLowerCase()))
+    );
+  }
+  
+  // Lọc theo giá
+  filteredProducts = filterProductsByPrice(filteredProducts, currentPriceFilter);
+  
+  // Reset display count
+  currentDisplayCount = 20;
+  
+  // Hiển thị sản phẩm
+  renderProducts(filteredProducts.slice(0, currentDisplayCount), "productGrid");
+}
+function setupPriceFilter() {
+  const priceButtons = document.querySelectorAll(".price-btn");
+  
+  priceButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Xóa active khỏi tất cả các nút giá
+      priceButtons.forEach(btn => btn.classList.remove("active"));
+      
+      // Thêm active cho nút được chọn
+      button.classList.add("active");
+      
+      // Cập nhật bộ lọc giá hiện tại
+      currentPriceFilter = button.dataset.price;
+      
+      // Áp dụng bộ lọc
+      applyFilters();
+    });
+  });
+}
 function refreshCartUI() {
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
   const cartBadge = document.getElementById("cartBadge");
@@ -1217,18 +1306,18 @@ function setupCategoryFilter() {
   const categoryButtons = document.querySelectorAll(".category-btn");
 
   categoryButtons.forEach((button) => {
-    button.addEventListener("click", async () => {
+    button.addEventListener("click", () => {
+      // Xóa active khỏi tất cả các nút category
       categoryButtons.forEach((btn) => btn.classList.remove("active"));
+      
+      // Thêm active cho nút được chọn
       button.classList.add("active");
-
-      const category = button.dataset.category;
-
-      if (category === "all") {
-        await initProducts();
-      } else {
-        const filteredProducts = await getProductsByCategory(category);
-        renderProducts(filteredProducts, "productGrid");
-      }
+      
+      // Cập nhật bộ lọc category hiện tại
+      currentCategoryFilter = button.dataset.category;
+      
+      // Áp dụng bộ lọc
+      applyFilters();
     });
   });
 }
@@ -2143,9 +2232,11 @@ async function init() {
 
   await initProducts();
 
+  // Thiết lập cả 2 bộ lọc
   setupCategoryFilter();
+  setupPriceFilter();
 
-  document.getElementById("userBtn").addEventListener("click", function (e) {
+ document.getElementById("userBtn").addEventListener("click", function (e) {
     if (!currentUser) {
       goToLoginPage();
     } else {
@@ -2161,17 +2252,28 @@ async function init() {
 
   document.getElementById("homeBtn").addEventListener("click", async () => {
     document.getElementById("searchInput").value = "";
-    await initProducts();
-
+    
+    // Reset bộ lọc
+    currentCategoryFilter = "all";
+    currentPriceFilter = "all";
+    
     document.querySelectorAll(".category-btn").forEach((btn) => {
       btn.classList.remove("active");
       if (btn.dataset.category === "all") {
         btn.classList.add("active");
       }
     });
+    
+    document.querySelectorAll(".price-btn").forEach((btn) => {
+      btn.classList.remove("active");
+      if (btn.dataset.price === "all") {
+        btn.classList.add("active");
+      }
+    });
+    
+    await initProducts();
   });
 
   switchPaymentContent("zalopay");
 }
-
 document.addEventListener("DOMContentLoaded", init);
