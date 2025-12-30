@@ -59,7 +59,7 @@ INSERT INTO products (name, description, price, category, image_url, discount, r
 ('Kính thời trang unisex', 'Kính thời trang chống UV, gọng nhựa dẻo, nhiều màu sắc, phù hợp cả nam và nữ.', 29000.00, 'Phụ kiện', 'https://cf.shopee.vn/file/ccf55bc09846c7b932c5864f2bfb49ec', 0, 4.9),
 ('Quần sọc kẻ nữ công sở', 'Quần tây sọc kẻ, chất liệu vải tixi cao cấp, form thẳng, phù hợp công sở.', 55809.00, 'Quần', 'https://tse2.mm.bing.net/th/id/OIP.FhhJYGDBIEz5wQDUgDYjPQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', 0, 5.0),
 ('Balo đi học cute', 'Balo hình thú ngộ nghĩnh, ngăn laptop 15 inch, nhiều ngăn tiện lợi.', 301090.00, 'Túi xách', 'https://tse4.mm.bing.net/th/id/OIP.1Q6zpsvmRtPkFMgA4Ef2EQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', 11, 3.7),
-('Áo khoác dù nam chống nước', 'Áo khoác dù chống nước, có mũ trùm, nhiều túi, màu sắc trung tính.', 189000.00, 'Áo khoác', 'https://th.bing.com/th/id/OIP.hiNPq-O_JyH_Ve7Q55wSVgHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3', 0, 4.8),
+('Áo khoác dù nam chống nước', 'Áo khoác dù chống nước, có mũ trùm, nhiều túi, màu sắc trung tính.', 189000.00, 'Áo ', 'https://th.bing.com/th/id/OIP.hiNPq-O_JyH_Ve7Q55wSVgHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3', 0, 4.8),
 ('Giày thể thao nữ êm ái', 'Giày thể thao đế êm, nhẹ, thiết kế năng động, phù hợp chạy bộ và tập gym.', 159000.00, 'Giày dép', 'https://th.bing.com/th/id/R.ea3ce5045984504ad284d18657cb0b0d?rik=L2hNuEh3TkLfxg&pid=ImgRaw&r=0', 0, 4.5),
 ('Balo laptop chống nước', 'Balo chống nước, ngăn đựng laptop 15.6 inch, có ngăn chống sốc.', 129000.00, 'Túi xách', 'https://tse2.mm.bing.net/th/id/OIP.2m28LASBohg69nbHdJkMbQHaHY?rs=1&pid=ImgDetMain&o=7&rm=3', 15, 4.7),
 
