@@ -160,16 +160,34 @@
             Phụ kiện
           </button>
         </div>
+<!-- Thêm phần lọc giá mới với mô tả rõ ràng -->
 <div class="price-filter" style="margin: 20px 0">
   <h4 style="margin: 0 0 12px 0; font-size: 16px; color: #333">
-    <i class="fas fa-filter"></i> Lọc theo giá
+    <i class="fas fa-tags"></i> Lọc theo giá sau giảm
   </h4>
   <div class="price-buttons" style="display: flex; flex-wrap: wrap; gap: 10px">
-    <button class="price-btn active" data-price="all">Tất cả giá</button>
-    <button class="price-btn" data-price="under100k">Dưới 100k</button>
-    <button class="price-btn" data-price="100k-300k">100k - 300k</button>
-    <button class="price-btn" data-price="300k-500k">300k - 500k</button>
-    <button class="price-btn" data-price="over500k">Trên 500k</button>
+    <button class="price-btn active" data-price="all">
+      <i class="fas fa-bars"></i> Tất cả giá
+    </button>
+    <button class="price-btn" data-price="under100k">
+      <i class="fas fa-coins"></i> Dưới 100k
+      <span class="price-badge">Rẻ nhất</span>
+    </button>
+    <button class="price-btn" data-price="100k-300k">
+      <i class="fas fa-wallet"></i> 100k - 300k
+      <span class="price-badge">Phổ biến</span>
+    </button>
+    <button class="price-btn" data-price="300k-500k">
+      <i class="fas fa-gem"></i> 300k - 500k
+      <span class="price-badge">Trung cấp</span>
+    </button>
+    <button class="price-btn" data-price="over500k">
+      <i class="fas fa-crown"></i> Trên 500k
+      <span class="price-badge">Cao cấp</span>
+    </button>
+  </div>
+  <div class="price-filter-info" style="margin-top: 8px; font-size: 12px; color: #666; display: none;" id="priceFilterInfo">
+    <i class="fas fa-info-circle"></i> Đang lọc theo giá sau khi áp dụng khuyến mãi
   </div>
 </div>
         <!-- Main products grid -->
