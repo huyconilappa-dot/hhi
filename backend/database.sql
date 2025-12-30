@@ -76,7 +76,18 @@ INSERT INTO products (name, description, price, category, image_url, discount, r
 ('Áo len nữ cổ lọ dài tay', 'Áo len mềm mại, ấm áp, cổ lọ ôm vừa, nhiều màu pastel nhẹ nhàng. Size S-XL.', 159000.00, 'Áo', 'https://cf.shopee.vn/file/4039b79e2b31e4a4bb51b80c40158b1b', 15, 4.8),
 ('Quần jogger nam nữ co giãn', 'Quần jogger dáng suông, có dây rút, chất liệu vải thun mềm, phù hợp thể thao và streetwear. Size S-XXL.', 139000.00, 'Quần', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ln64hkqul1kjf3', 0, 4.7),
 ('Giày lười nam da mềm', 'Giày lười da PU mềm, đế cao su chống trượt, không cột dây, tiện lợi khi đi lại. Size 38-44.', 179000.00, 'Giày dép', 'https://th.bing.com/th/id/R.6950fed956720dbca52dd55f77e9bf32?rik=ag4iJKnZz5F6eQ&pid=ImgRaw&r=0', 10, 4.5);
--- Người dùng mẫu (password: 123456 đã được bcrypt hash)
+('Thảm tập Yoga TPE cao cấp', 'Thảm 2 lớp chống trượt, độ dày 8mm êm ái cho tập luyện thể thao.', 350000.00, 'Thể thao', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll1u2m5s7u8v9e', 10, 4.8),
+('Vợt cầu lông Carbon chuyên dụng', 'Khung carbon siêu nhẹ, sức căng lớn, tặng kèm túi đựng.', 485000.00, 'Thể thao', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkj9p8f7s2wz9f', 5, 4.7),
+('Chuột Gaming không dây RGB', 'Độ nhạy 10.000 DPI, kết nối Wireless 2.4Ghz ổn định.', 320000.00, 'Linh kiện', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkp3b9u6yza9c', 15, 4.6),
+('Tai nghe chụp tai có Mic', 'Âm thanh vòm trung thực, đệm tai êm ái cho học tập và làm việc.', 420000.00, 'Linh kiện', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm9c8b9u6yza9c', 10, 4.4),
+('Sạc dự phòng 20.000mAh 22.5W', 'Hỗ trợ sạc nhanh cho mọi dòng điện thoại, thiết kế nhỏ gọn.', 380000.00, 'Linh kiện', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkq8b9u6yza9c', 0, 4.7),
+('Áo khoác Bomber Nhung tăm', 'Chất vải nhung tăm dày dặn, form rộng phong cách trẻ trung.', 450000.00, 'Áo khoác', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lku6p8f7s2wz9f', 12, 4.8),
+('Váy hoa nhí dáng xòe tiểu thư', 'Vải voan lụa mềm mại, có lớp lót kín đáo, họa tiết sang trọng.', 310000.00, 'Váy', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm4f8b9u6yza9c', 15, 4.6),
+('Đầm Body thun gân tôn dáng', 'Thiết kế ôm sát, chất thun co giãn tốt, mặc cực tôn dáng.', 340000.00, 'Váy', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-llv3l7v0e2mx3d', 10, 4.5),
+('Bộ tạ tay đa năng 20kg', 'Chất liệu gang bọc cao su, có thể thay đổi trọng lượng linh hoạt.', 850000.00, 'Thể thao', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lkj9p8f7s2wz9f', 5, 4.9),
+('Bàn phím cơ Custom Full-size', 'Trục cơ học (Red Switch) bền bỉ, LED RGB nhiều chế độ.', 1250000.00, 'Linh kiện', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-llp5b9u6yza9c', 20, 4.9),
+('Áo khoác Măng tô Dạ Hàn Quốc', 'Dạ cao cấp ép lông cừu, giữ ấm cực tốt cho mùa đông lạnh.', 950000.00, 'Áo khoác', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ln3f8b9u6yza9c', 5, 5.0),
+('Váy cưới/Dự tiệc Luxury', 'Thiết kế thủ công, đính đá lấp lánh, phù hợp cho sự kiện lớn.', 1850000.00, 'Váy', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lm4f8b9u6yza9c', 0, 5.0);
 INSERT INTO users (email, password, name, phone) VALUES 
 ('user@example.com', '$2a$10$N9qo8uLOickgx2ZMRZoMye5PJx3ni1cTZ/CvGvVrJ.due8Zy2zKcC', 'Người dùng mẫu', '0987654321');
 
