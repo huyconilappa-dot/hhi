@@ -54,14 +54,14 @@ INSERT INTO products (name, description, price, category, image_url, discount, r
 ('Dép bánh mì nữ dễ thương đế dày', 'Dép bánh mì đế dày 3cm, êm ái, chống trơn trượt, nhiều màu pastel dễ thương.', 42000.00, 'Giày dép', 'https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-luipi16v2y80a2.webp', 10, 4.3),
 ('Nhẫn thời trang nam mạ bạc cao cấp', 'Nhẫn mạ bạc sáng bóng, không gỉ, thiết kế tối giản, size từ 6-12.', 29000.00, 'Phụ kiện', 'https://down-vn.img.susercontent.com/file/sg-11134301-7rdys-lyk6z165bj1k7c.webp', 0, 4.7),
 ('Áo thun cổ tròn form rộng unisex', 'Áo thun cotton 100%, form rộng thoải mái, in hình độc đáo, size S-XXL.', 99000.00, 'Áo', 'https://aothunnhatrang.com/wp-content/uploads/2022/12/kiotviet_e4a5d42d06c878fc1d91f152060d1a8b.jpg', 25, 4.4),
-('Quần jean nữ rách gối cao cấp', 'Quần jean denim cao cấp, kiểu dáng skinny, rách gối thời trang, size 26-32.', 499000.00, 'Quần', 'https://cdn.boo.vn/media/catalog/product/1/_/1.2.21.1.24.003.124.01.30600015_1__4.jpg', 30, 4.6),
+('Quần jean nữ rách gối cao cấp', 'Quần jean denim cao cấp, kiểu dáng skinny, rách gối thời trang, size 26-32.', 239000.00, 'Quần', 'https://cdn.boo.vn/media/catalog/product/1/_/1.2.21.1.24.003.124.01.30600015_1__4.jpg', 30, 4.6),
 ('Túi vải mini thời trang đi chơi', 'Túi vải canvas, có khóa kéo, ngăn chính rộng, dây đeo có thể điều chỉnh.', 75900.00, 'Túi xách', 'https://cf.shopee.vn/file/809416a75aa9982544f46701a0f2c44a', 0, 4.2),
 ('Kính thời trang unisex', 'Kính thời trang chống UV, gọng nhựa dẻo, nhiều màu sắc, phù hợp cả nam và nữ.', 29000.00, 'Phụ kiện', 'https://cf.shopee.vn/file/ccf55bc09846c7b932c5864f2bfb49ec', 0, 4.9),
 ('Quần sọc kẻ nữ công sở', 'Quần tây sọc kẻ, chất liệu vải tixi cao cấp, form thẳng, phù hợp công sở.', 55809.00, 'Quần', 'https://tse2.mm.bing.net/th/id/OIP.FhhJYGDBIEz5wQDUgDYjPQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', 0, 5.0),
-('Balo đi học cute', 'Balo hình thú ngộ nghĩnh, ngăn laptop 15 inch, nhiều ngăn tiện lợi.', 421090.00, 'Túi xách', 'https://tse4.mm.bing.net/th/id/OIP.1Q6zpsvmRtPkFMgA4Ef2EQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', 11, 3.7),
-('Áo khoác dù nam chống nước', 'Áo khoác dù chống nước, có mũ trùm, nhiều túi, màu sắc trung tính.', 189000.00, 'Áo ', 'https://th.bing.com/th/id/OIP.hiNPq-O_JyH_Ve7Q55wSVgHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3', 0, 4.8),
+('Balo đi học cute', 'Balo hình thú ngộ nghĩnh, ngăn laptop 15 inch, nhiều ngăn tiện lợi.', 301090.00, 'Túi xách', 'https://tse4.mm.bing.net/th/id/OIP.1Q6zpsvmRtPkFMgA4Ef2EQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', 11, 3.7),
+('Áo khoác dù nam chống nước', 'Áo khoác dù chống nước, có mũ trùm, nhiều túi, màu sắc trung tính.', 189000.00, 'Áo khoác', 'https://th.bing.com/th/id/OIP.hiNPq-O_JyH_Ve7Q55wSVgHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3', 0, 4.8),
 ('Giày thể thao nữ êm ái', 'Giày thể thao đế êm, nhẹ, thiết kế năng động, phù hợp chạy bộ và tập gym.', 159000.00, 'Giày dép', 'https://th.bing.com/th/id/R.ea3ce5045984504ad284d18657cb0b0d?rik=L2hNuEh3TkLfxg&pid=ImgRaw&r=0', 0, 4.5),
-('Balo laptop chống nước', 'Balo chống nước, ngăn đựng laptop 15.6 inch, có ngăn chống sốc.', 1257000.00, 'Túi xách', 'https://tse2.mm.bing.net/th/id/OIP.2m28LASBohg69nbHdJkMbQHaHY?rs=1&pid=ImgDetMain&o=7&rm=3', 15, 4.7),
+('Balo laptop chống nước', 'Balo chống nước, ngăn đựng laptop 15.6 inch, có ngăn chống sốc.', 129000.00, 'Túi xách', 'https://tse2.mm.bing.net/th/id/OIP.2m28LASBohg69nbHdJkMbQHaHY?rs=1&pid=ImgDetMain&o=7&rm=3', 15, 4.7),
 
 --- Sản phẩm 13-24 với link ảnh thực tế
 ('Áo sơ mi nam công sở dài tay', 'Áo sơ mi cotton thoáng mát, form chuẩn, cổ bẻ, phù hợp đi làm và sự kiện trang trọng. Size M-XXL.', 129000.00, 'Áo', 'https://down-vn.img.susercontent.com/file/248411f57b54ccbcdff68a05e1ce689d', 10, 4.6),
@@ -75,7 +75,7 @@ INSERT INTO products (name, description, price, category, image_url, discount, r
 ('Mũ lưỡi trai nam nữ phong cách', 'Mũ lưỡi trai vải kaki, có khóa điều chỉnh size, in logo đơn giản, che nắng tốt.', 45000.00, 'Phụ kiện', 'https://down-vn.img.susercontent.com/file/08093691dfdef03bbd78dbce8b35fda0', 0, 4.6),
 ('Áo len nữ cổ lọ dài tay', 'Áo len mềm mại, ấm áp, cổ lọ ôm vừa, nhiều màu pastel nhẹ nhàng. Size S-XL.', 159000.00, 'Áo', 'https://cf.shopee.vn/file/4039b79e2b31e4a4bb51b80c40158b1b', 15, 4.8),
 ('Quần jogger nam nữ co giãn', 'Quần jogger dáng suông, có dây rút, chất liệu vải thun mềm, phù hợp thể thao và streetwear. Size S-XXL.', 139000.00, 'Quần', 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ln64hkqul1kjf3', 0, 4.7),
-('Giày lười nam da mềm', 'Giày lười da PU mềm, đế cao su chống trượt, không cột dây, tiện lợi khi đi lại. Size 38-44.', 799000.00, 'Giày dép', 'https://th.bing.com/th/id/R.6950fed956720dbca52dd55f77e9bf32?rik=ag4iJKnZz5F6eQ&pid=ImgRaw&r=0', 10, 4.5);
+('Giày lười nam da mềm', 'Giày lười da PU mềm, đế cao su chống trượt, không cột dây, tiện lợi khi đi lại. Size 38-44.', 179000.00, 'Giày dép', 'https://th.bing.com/th/id/R.6950fed956720dbca52dd55f77e9bf32?rik=ag4iJKnZz5F6eQ&pid=ImgRaw&r=0', 10, 4.5);
 INSERT INTO users (email, password, name, phone) VALUES 
 ('user@example.com', '$2a$10$N9qo8uLOickgx2ZMRZoMye5PJx3ni1cTZ/CvGvVrJ.due8Zy2zKcC', 'Người dùng mẫu', '0987654321');
 
