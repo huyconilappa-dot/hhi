@@ -1206,23 +1206,30 @@ async function doSearch() {
   }
 }
 
+// Hàm lọc sản phẩm theo giá SAU KHI GIẢM
 function filterProductsByPrice(productsList, priceFilter) {
   if (priceFilter === "all") {
     return productsList;
   }
   
   return productsList.filter(product => {
-    const price = parseFloat(product.price) || 0;
+    // Tính giá sau khi giảm
+    const originalPrice = parseFloat(product.price) || 0;
+    const discount = parseFloat(product.discount) || 0;
+    const finalPrice = discount > 0 
+      ? Math.round(originalPrice * (1 - discount / 100))
+      : originalPrice;
     
+    // Lọc theo giá cuối cùng (sau giảm)
     switch(priceFilter) {
       case "under100k":
-        return price < 100000;
+        return finalPrice < 100000;
       case "100k-300k":
-        return price >= 100000 && price <= 300000;
+        return finalPrice >= 100000 && finalPrice <= 300000;
       case "300k-500k":
-        return price >= 300000 && price <= 500000;
+        return finalPrice >= 300000 && finalPrice <= 500000;
       case "over500k":
-        return price > 500000;
+        return finalPrice > 500000;
       default:
         return true;
     }
