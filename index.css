@@ -1363,3 +1363,41 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+/* Style cho các nút lọc giá */
+.price-filter {
+  margin: 20px 0;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.price-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.price-btn {
+  padding: 10px 20px;
+  border: 2px solid #e6e9ef;
+  background: white;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.price-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.price-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
