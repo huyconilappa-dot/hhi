@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
           description TEXT,
           price DECIMAL(10,2) NOT NULL,
           image_url VARCHAR(500),
-          stock_quantity INTEGER DEFAULT 0,
+          stock INTEGER DEFAULT 0,
           category VARCHAR(100),
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
