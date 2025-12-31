@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
             description TEXT,
             price DECIMAL(10,2) NOT NULL,
             image_url VARCHAR(500),
-            stock_quantity INTEGER DEFAULT 0,
+            stock INTEGER DEFAULT 0,
             category VARCHAR(100),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -44,7 +44,7 @@ router.get("/", async (req, res) => {
 
         // Thêm dữ liệu mẫu
         await req.pool.query(`
-          INSERT INTO products (name, description, price, image_url, stock_quantity, category) VALUES
+          INSERT INTO products (name, description, price, image_url, stock, category) VALUES
           ('Laptop Dell XPS 13', 'Laptop cao cấp với màn hình InfinityEdge', 29990000, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853', 10, 'Electronics'),
           ('iPhone 15 Pro', 'Điện thoại flagship của Apple', 32990000, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9', 15, 'Mobile'),
           ('Samsung Galaxy Watch', 'Smartwatch với nhiều tính năng sức khỏe', 8990000, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30', 20, 'Wearables'),
@@ -171,7 +171,7 @@ router.get("/search/:query", async (req, res) => {
 // Create new product
 router.post("/", async (req, res) => {
   try {
-    const { name, description, price, image_url, stock_quantity, category } =
+    const { name, description, price, image_url, stock, category } =
       req.body;
 
     // Validate required fields
@@ -190,7 +190,7 @@ router.post("/", async (req, res) => {
 
     const result = await req.pool.query(
       `INSERT INTO products 
-       (name, description, price, image_url, stock_quantity, category) 
+       (name, description, price, image_url, stock, category) 
        VALUES ($1, $2, $3, $4, $5, $6) 
        RETURNING *`,
       [
@@ -198,7 +198,7 @@ router.post("/", async (req, res) => {
         description,
         price,
         image_url,
-        stock_quantity || 0,
+        stock || 0,
         category || "Uncategorized",
       ]
     );
@@ -218,7 +218,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, description, price, image_url, stock_quantity, category } =
+    const { name, description, price, image_url, stock, category } =
       req.body;
 
     if (!req.pool) {
@@ -252,9 +252,9 @@ router.put("/:id", async (req, res) => {
       values.push(image_url);
       paramCount++;
     }
-    if (stock_quantity !== undefined) {
-      updates.push(`stock_quantity = $${paramCount}`);
-      values.push(stock_quantity);
+    if (stock !== undefined) {
+      updates.push(`stock = $${paramCount}`);
+      values.push(stock);
       paramCount++;
     }
     if (category !== undefined) {
@@ -341,7 +341,7 @@ router.get("/stats/summary", async (req, res) => {
     const stats = await req.pool.query(`
       SELECT 
         COUNT(*) as total_products,
-        COALESCE(SUM(stock_quantity), 0) as total_stock,
+        COALESCE(SUM(stock), 0) as total_stock,
         COALESCE(AVG(price), 0) as average_price,
         MIN(price) as min_price,
         MAX(price) as max_price,
