@@ -1167,21 +1167,26 @@ async function doSearch() {
   const keyword = document.getElementById("searchInput").value.trim();
 
   if (!keyword) {
-    // Reset bộ lọc khi không có từ khóa
+    // Reset về trang chủ
     currentCategoryFilter = "all";
     currentPriceFilter = "all";
-    document.querySelectorAll(".category-btn").forEach(btn => {
-      btn.classList.remove("active");
-      if (btn.dataset.category === "all") btn.classList.add("active");
-    });
-    document.querySelectorAll(".price-btn").forEach(btn => {
-      btn.classList.remove("active");
-      if (btn.dataset.price === "all") btn.classList.add("active");
-    });
+    filteredProducts = []; // RESET
     
     await initProducts();
     return;
   }
+
+  const searchResults = await searchProducts(keyword);
+  // Khi tìm kiếm → có filter
+  filteredProducts = searchResults;
+  
+  currentDisplayCount = 20;
+  renderProducts(searchResults.slice(0, currentDisplayCount), "productGrid");
+
+  if (searchResults.length === 0) {
+    showToast(`Không tìm thấy sản phẩm nào với từ khóa "${keyword}"`, "warning");
+  }
+}
 
   const searchResults = await searchProducts(keyword);
    document.querySelectorAll(".category-btn").forEach(btn => {
@@ -1236,26 +1241,34 @@ function filterProductsByPrice(productsList, priceFilter) {
   });
 }
 function applyFilters() {
-  let filteredProducts = [];
+  let filtered = [];
   
   // Lọc theo danh mục
   if (currentCategoryFilter === "all") {
-    filteredProducts = [...products];
+    filtered = [...products];
   } else {
-    filteredProducts = products.filter(p => 
+    filtered = products.filter(p => 
       p.category === currentCategoryFilter || 
       (p.category && p.category.toLowerCase().includes(currentCategoryFilter.toLowerCase()))
     );
   }
   
   // Lọc theo giá
-  filteredProducts = filterProductsByPrice(filteredProducts, currentPriceFilter);
+  filtered = filterProductsByPrice(filtered, currentPriceFilter);
+  
+  // CẬP NHẬT filteredProducts
+  filteredProducts = filtered;
   
   // Reset display count
   currentDisplayCount = 20;
   
   // Hiển thị sản phẩm
-  renderProducts(filteredProducts.slice(0, currentDisplayCount), "productGrid");
+  renderProducts(filtered.slice(0, currentDisplayCount), "productGrid");
+  
+  // LOGIC MỚI: Nếu đang filter "all" thì xem như không filter
+  if (currentCategoryFilter === "all" && currentPriceFilter === "all") {
+    filteredProducts = [];
+  }
 }
 function setupPriceFilter() {
   const priceButtons = document.querySelectorAll(".price-btn");
@@ -1270,6 +1283,11 @@ function setupPriceFilter() {
       
       // Cập nhật bộ lọc giá hiện tại
       currentPriceFilter = button.dataset.price;
+      
+      // Nếu chọn "all" → reset filteredProducts
+      if (currentCategoryFilter === "all" && currentPriceFilter === "all") {
+        filteredProducts = [];
+      }
       
       // Áp dụng bộ lọc
       applyFilters();
@@ -1322,6 +1340,11 @@ function setupCategoryFilter() {
       
       // Cập nhật bộ lọc category hiện tại
       currentCategoryFilter = button.dataset.category;
+      
+      // Nếu chọn "all" → reset filteredProducts
+      if (currentCategoryFilter === "all" && currentPriceFilter === "all") {
+        filteredProducts = [];
+      }
       
       // Áp dụng bộ lọc
       applyFilters();
@@ -2159,25 +2182,31 @@ function addLoadMoreButton() {
   const oldButton = document.getElementById("loadMoreBtn");
   if (oldButton) oldButton.remove();
 
-  if (currentDisplayCount < products.length) {
+  // CHỈ HIỆN KHI: 
+  // 1. Đang ở trang chủ (không có filter active)
+  // 2. Vẫn còn sản phẩm để xem thêm
+  const isFiltering = currentCategoryFilter !== "all" || 
+                      currentPriceFilter !== "all" || 
+                      filteredProducts.length > 0;
+  
+  if (!isFiltering && currentDisplayCount < products.length) {
     const buttonContainer = document.createElement("div");
     buttonContainer.style.gridColumn = "1 / -1";
     buttonContainer.style.textAlign = "center";
     buttonContainer.style.marginTop = "30px";
     buttonContainer.style.padding = "20px";
 
+    const remaining = products.length - currentDisplayCount;
     buttonContainer.innerHTML = `
       <button id="loadMoreBtn" class="btn btn-add" style="padding: 12px 36px; font-size: 16px">
         <i class="fas fa-chevron-down" style="margin-right: 8px"></i>
-        Xem thêm sản phẩm (${products.length - currentDisplayCount} sản phẩm)
+        Xem thêm sản phẩm (${remaining} sản phẩm)
       </button>
     `;
 
     container.appendChild(buttonContainer);
 
-    document
-      .getElementById("loadMoreBtn")
-      .addEventListener("click", loadMoreProducts);
+    document.getElementById("loadMoreBtn").addEventListener("click", loadMoreProducts);
   }
 }
 
