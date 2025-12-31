@@ -42,7 +42,7 @@ router.get("/", async (req, res) => {
 
       // Thêm dữ liệu mẫu
       await req.pool.query(`
-        INSERT INTO products (name, description, price, image_url, stock_quantity, category) VALUES
+        INSERT INTO products (name, description, price, image_url, stock, category) VALUES
         ('Laptop Dell XPS 13', 'Laptop cao cấp với màn hình InfinityEdge', 29990000, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853', 10, 'Electronics'),
         ('iPhone 15 Pro', 'Điện thoại flagship của Apple', 32990000, 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9', 15, 'Mobile'),
         ('Samsung Galaxy Watch', 'Smartwatch với nhiều tính năng sức khỏe', 8990000, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30', 20, 'Wearables')
@@ -100,7 +100,7 @@ router.get("/:id", async (req, res) => {
 // Create new product
 router.post("/", async (req, res) => {
   try {
-    const { name, description, price, image_url, stock_quantity, category } =
+    const { name, description, price, image_url, stock, category } =
       req.body;
 
     if (!req.pool) {
@@ -111,10 +111,10 @@ router.post("/", async (req, res) => {
 
     const result = await req.pool.query(
       `INSERT INTO products 
-       (name, description, price, image_url, stock_quantity, category) 
+       (name, description, price, image_url, stock, category) 
        VALUES ($1, $2, $3, $4, $5, $6) 
        RETURNING *`,
-      [name, description, price, image_url, stock_quantity, category]
+      [name, description, price, image_url, stock, category]
     );
 
     res.status(201).json(result.rows[0]);
@@ -130,7 +130,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, description, price, image_url, stock_quantity, category } =
+    const { name, description, price, image_url, stock, category } =
       req.body;
 
     if (!req.pool) {
@@ -142,11 +142,11 @@ router.put("/:id", async (req, res) => {
     const result = await req.pool.query(
       `UPDATE products 
        SET name = $1, description = $2, price = $3, 
-           image_url = $4, stock_quantity = $5, category = $6,
+           image_url = $4, stock = $5, category = $6,
            updated_at = CURRENT_TIMESTAMP
        WHERE id = $7 
        RETURNING *`,
-      [name, description, price, image_url, stock_quantity, category, id]
+      [name, description, price, image_url, stock, category, id]
     );
 
     if (result.rows.length === 0) {
