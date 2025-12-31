@@ -461,26 +461,36 @@ body {
   box-shadow: 0 4px 12px rgba(251, 146, 60, 0.3);
 }
 
-/* ==================== RATING ==================== */
+/* FIX RATING HIỂN THỊ */
 .rating {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 6px 0;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 6px 0 !important;
+  min-height: 24px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .stars {
-  color: #fbbf24;
-  font-size: 16px;
-  text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
+  color: #fbbf24 !important;
+  font-size: 16px !important;
+  text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3) !important;
+  visibility: visible !important;
 }
 
 .rating-count {
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
+  font-size: 13px !important;
+  color: var(--muted) !important;
+  font-weight: 500 !important;
+  visibility: visible !important;
 }
 
+/* Nếu rating = 0 */
+.rating .stars[style*="color: #ccc"] {
+  color: #fbbf24 !important; /* Vẫn giữ màu vàng */
+  opacity: 0.5;
+}
 /* ==================== PRICES ==================== */
 .price-container {
   display: flex;
